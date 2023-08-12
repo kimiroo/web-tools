@@ -1,0 +1,77 @@
+input {
+    text-align: center;
+    font-weight: bold !important;
+    padding: 0.375rem 0.75rem !important;
+}
+
+.list-result {
+    padding: 0.2rem 0.3rem;
+    font-weight: bold;
+}
+
+.result-title {
+    padding: 0rem 0.4rem;
+}
+
+.result-title>h5 {
+    font-weight: bold;
+    margin-bottom: 0.2rem !important;
+}
+
+.result-text {
+    font-weight: bold;
+}
+
+.link-copy {
+    color: black;
+}
+
+.link-copy:hover {
+    color: grey;
+}
+
+.link-copy,
+.link-copy:hover,
+.link-copy:visited,
+.link-copy:active {
+    text-decoration: none;
+}
+
+.form-control>.is-invalid {
+    padding-right: 0.75rem !important;
+}
+
+.input-phoneno:hover,
+.input-phoneno:active,
+.input-phoneno:focus,
+.input-phoneno:focus-within,
+.input-phoneno:focus-visible {
+    box-shadow: none !important;
+}
+
+.form-control:focus {
+    border-color: var(--bs-border-width) solid var(--bs-border-color) !important;
+}
+
+.is-invalid,
+.is-invalid:hover,
+.is-invalid:active,
+.is-invalid:focus,
+.is-invalid:focus-within,
+.is-invalid:focus-visible {
+    border-color: var(--bs-form-invalid-border-color) !important;
+}
+
+.validation-invalid {
+    color: var(--bs-form-invalid-border-color);
+    visibility: visible;
+}
+
+.is-hidden {
+    visibility: hidden !important;
+}
+
+.custom-tooltip {
+    --bs-tooltip-bg: #28a745;
+    --bs-tooltip-color: var(--bs-white);
+}

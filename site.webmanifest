@@ -1,0 +1,42 @@
+{
+    "name": "(나만 쓰는) 웹 도구 모음",
+    "short_name": "웹 도구 모음",
+    "id": "/?version=1",
+    "start_url": "/?version=1",
+    "scope": "/",
+    "icons": [
+        {
+            "src": "/android-chrome-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "/android-chrome-512x512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ],
+    "shortcuts": [
+        {
+            "name": "01X → 010 변환기",
+            "short_name": "01X 변환기",
+            "description": "View weather information for today",
+            "url": "/convert/phone-number?version=1",
+            "icons": [
+                {
+                    "src": "/android-chrome-192x192.png",
+                    "sizes": "192x192",
+                    "type": "image/png"
+                },
+                {
+                    "src": "/android-chrome-512x512.png",
+                    "sizes": "512x512",
+                    "type": "image/png"
+                }
+            ]
+        }
+    ],
+    "theme_color": "#ac8a61",
+    "background_color": "#e9ecef",
+    "display": "standalone"
+}

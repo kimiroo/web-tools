@@ -1,8 +1,8 @@
 {
     "name": "(나만 쓰는) 웹 도구 모음",
     "short_name": "웹 도구 모음",
-    "id": "/?version=1.1",
-    "start_url": "/?version=1.1",
+    "id": "/?version=1.2",
+    "start_url": "/?version=1.2",
     "scope": "/",
     "icons": [
         {
@@ -21,7 +21,7 @@
             "name": "01X → 010 변환기",
             "short_name": "01X 변환기",
             "description": "View weather information for today",
-            "url": "/convert/phone-number?version=1.1",
+            "url": "/convert/phone-number?version=1.2",
             "icons": [
                 {
                     "src": "/android-chrome-192x192.png",

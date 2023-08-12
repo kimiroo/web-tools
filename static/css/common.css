@@ -18,17 +18,20 @@ body {
 
 .button-home {
     position: absolute;
-    font-size: 40px;
+    font-size: 1.5rem;
+    /*font-size: 40px;*/
 
-    top: 10px;
-    left: 25px;
+    top: 2rem;
+    left: 2.5rem;
+    /*top: 25px;
+    left: 30px;*/
 }
 
 .button-home a {
-    color: #c0c0c0;
+    color: black; /* #c0c0c0 */
 }
 .button-home a:hover {
-    color: lightgrey;
+    color: grey; /* rgb(160, 160, 160) */
 }
 .button-home a,
 .button-home a:hover,

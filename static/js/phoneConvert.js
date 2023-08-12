@@ -201,9 +201,6 @@ function getCarrier010(value) {
 function getCarrier01X(value) {
     const strFirst = value.toString().slice(0, 3);
 
-    console.log(strFirst);
-    console.log(typeof (strFirst));
-
     if (strFirst == '011' || strFirst == '017') return 'skt';
     else if (strFirst == '016' || strFirst == '018') return 'kt';
     else if (strFirst == '019') return 'lgt';
@@ -391,16 +388,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
     btnCopyList.forEach((elem) => {
 
-        const toolip = new bootstrap.Tooltip(elem, {'trigger': 'manual', 'html': true, 'customClass': 'custom-tooltip', 'title': '<div><i class="bi bi-check-lg"></i> <span>복!사</span></div>'});
+        const tooltip = new bootstrap.Tooltip(elem, {'trigger': 'manual', 'html': true, 'customClass': 'custom-tooltip', 'title': '<div><i class="bi bi-check-lg"></i> <span>복!사</span></div>'});
 
         elem.addEventListener('click', () => {
             copyTargetId = elem.getAttribute('copy-target');
             copyTarget = document.getElementById(copyTargetId);
-            unsecuredCopyToClipboard(copyTarget.innerText)
 
-            toolip.show();
+            if (location.protocol === 'http') {
+                console.log('Copy - Insecure');
+                unsecuredCopyToClipboard(copyTarget.innerText);
+            } else {
+                console.log('Copy - Secure');
+                window.navigator.clipboard.writeText(copyTarget.innerText);
+            }
+
+            tooltip.show();
             setTimeout(() => {
-                toolip.hide()
+                tooltip.hide()
             }, 2000);
         });
     });

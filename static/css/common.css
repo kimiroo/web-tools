@@ -27,15 +27,15 @@ body {
     left: 30px;*/
 }
 
-.button-home a {
+.link-grey {
     color: black; /* #c0c0c0 */
 }
-.button-home a:hover {
+.link-grey:hover {
     color: grey; /* rgb(160, 160, 160) */
 }
-.button-home a,
-.button-home a:hover,
-.button-home a:visited,
-.button-home a:active {
+.link-grey,
+.link-grey:hover,
+.link-grey:visited,
+.link-grey:active {
     text-decoration: none;
 }

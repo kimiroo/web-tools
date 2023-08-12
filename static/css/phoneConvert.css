@@ -22,21 +22,6 @@ input {
     font-weight: bold;
 }
 
-.link-copy {
-    color: black;
-}
-
-.link-copy:hover {
-    color: grey;
-}
-
-.link-copy,
-.link-copy:hover,
-.link-copy:visited,
-.link-copy:active {
-    text-decoration: none;
-}
-
 .form-control>.is-invalid {
     padding-right: 0.75rem !important;
 }

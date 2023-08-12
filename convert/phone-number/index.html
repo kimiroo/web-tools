@@ -22,9 +22,9 @@
     <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pretendard/dist/web/static/pretendard.min.css"> -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/spoqa-han-sans/css/SpoqaHanSansNeo.min.css">
 
-    <link rel="stylesheet" href="/static/css/common.css">
-    <link rel="stylesheet" href="/static/css/phoneConvert.css">
-    <script src="/static/js/phoneConvert.js"></script>
+    <link rel="stylesheet" href="/static/css/common.css?v=1.4">
+    <link rel="stylesheet" href="/static/css/phoneConvert.css?v=1.4">
+    <script src="/static/js/phoneConvert.js?v=1.4"></script>
 </head>
 
 <body>
@@ -34,7 +34,7 @@
             <div class="modal-content rounded-4 shadow">
                 <div class="modal-body p-5">
                     <div class="button-home">
-                        <a href="/">&#xE000; 홈</a>
+                        <a href="/" class="link-grey">&#xE000; 홈</a>
                     </div>
                     <div class="mb-5">
                         <img src="/static/img/cat.png" style="width: 200px;" class="image-center image-circle">
@@ -60,7 +60,7 @@
                                         <div class="col-3 d-none d-sm-block">통신사:</div>
                                         <div class="col result-text" id="resultCarrier"></div>
                                         <div class="col-3 align-middle text-center">
-                                            <a href="#" id="copyResultCarrier" class="link-copy" onclick=""
+                                            <a id="copyResultCarrier" class="link-grey link-copy" style="cursor:pointer;"
                                                 copy-target="resultCarrier">
                                                 <i class="bi bi-clipboard"></i><span class="hidden-sm"> 복?사</span>
                                             </a>
@@ -72,7 +72,7 @@
                                         <div class="col-3 d-none d-sm-block">형식 A:</div>
                                         <div class="col result-text" id="resultFriendly"></div>
                                         <div class="col-3 align-middle text-center">
-                                            <a href="#" id="copyResultFriendly" class="link-copy" onclick=""
+                                            <a id="copyResultFriendly" class="link-grey link-copy" style="cursor:pointer;"
                                                 copy-target="resultFriendly">
                                                 <i class="bi bi-clipboard"></i><span class="hidden-sm"> 복?사</span>
                                             </a>
@@ -84,7 +84,7 @@
                                         <div class="col-3 d-none d-sm-block">형식 B:</div>
                                         <div class="col result-text" id="resultNumber"></div>
                                         <div class="col-3 align-middle text-center">
-                                            <a href="#" id="copyResultNumber" class="link-copy" onclick=""
+                                            <a id="copyResultNumber" class="link-grey link-copy" style="cursor:pointer;"
                                                 copy-target="resultNumber">
                                                 <i class="bi bi-clipboard"></i><span class="hidden-sm"> 복?사</span>
                                             </a>

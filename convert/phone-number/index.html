@@ -57,30 +57,36 @@
                             <ul class="list-group list-group-flush">
                                 <li class="list-group-item">
                                     <div class="row">
-                                        <div class="col-3">통신사:</div>
+                                        <div class="col-3 d-none d-sm-block">통신사:</div>
                                         <div class="col result-text" id="resultCarrier"></div>
-                                    </div>
-                                </li>
-                                <li class="list-group-item">
-                                    <div class="row">
-                                        <div class="col-3">형식 A:</div>
-                                        <div class="col result-text" id="resultFriendly"></div>
                                         <div class="col-3 align-middle text-center">
-                                            <a href="#" id="copyResultFriendly" class="link-copy" onclick=""
-                                                copy-target="resultFriendly">
-                                                <i class="bi bi-clipboard"></i> <span>복?사</span>
+                                            <a href="#" id="copyResultCarrier" class="link-copy" onclick=""
+                                                copy-target="resultCarrier">
+                                                <i class="bi bi-clipboard"></i><span class="hidden-sm"> 복?사</span>
                                             </a>
                                         </div>
                                     </div>
                                 </li>
                                 <li class="list-group-item">
                                     <div class="row">
-                                        <div class="col-3">형식 B:</div>
+                                        <div class="col-3 d-none d-sm-block">형식 A:</div>
+                                        <div class="col result-text" id="resultFriendly"></div>
+                                        <div class="col-3 align-middle text-center">
+                                            <a href="#" id="copyResultFriendly" class="link-copy" onclick=""
+                                                copy-target="resultFriendly">
+                                                <i class="bi bi-clipboard"></i><span class="hidden-sm"> 복?사</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="list-group-item">
+                                    <div class="row">
+                                        <div class="col-3 d-none d-sm-block">형식 B:</div>
                                         <div class="col result-text" id="resultNumber"></div>
                                         <div class="col-3 align-middle text-center">
                                             <a href="#" id="copyResultNumber" class="link-copy" onclick=""
                                                 copy-target="resultNumber">
-                                                <i class="bi bi-clipboard"></i> <span>복?사</span>
+                                                <i class="bi bi-clipboard"></i><span class="hidden-sm"> 복?사</span>
                                             </a>
                                         </div>
                                     </div>

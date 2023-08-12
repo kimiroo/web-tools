@@ -75,3 +75,9 @@ input {
     --bs-tooltip-bg: #28a745;
     --bs-tooltip-color: var(--bs-white);
 }
+
+@media (max-width: 575.98px) {
+    .hidden-sm {
+        display: none;
+    }
+}

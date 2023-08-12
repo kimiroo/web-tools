@@ -368,11 +368,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const valueInput = document.getElementById('inputPhone');
     const btnCopyList = document.querySelectorAll('.link-copy');
 
-    valueInput.addEventListener('change', (event) => {
-        console.log('change');
-        console.log(event);
-    })
-
     valueInput.addEventListener('input', () => {
         showError(false);
         updateResult('', '', '');
@@ -394,11 +389,11 @@ document.addEventListener('DOMContentLoaded', () => {
             copyTargetId = elem.getAttribute('copy-target');
             copyTarget = document.getElementById(copyTargetId);
 
-            if (location.protocol === 'http') {
-                console.log('Copy - Insecure');
+            if (location.protocol === 'http:') {
+                //console.log('Copy - Insecure');
                 unsecuredCopyToClipboard(copyTarget.innerText);
             } else {
-                console.log('Copy - Secure');
+                //console.log('Copy - Secure');
                 window.navigator.clipboard.writeText(copyTarget.innerText);
             }
 

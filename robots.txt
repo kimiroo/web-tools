@@ -1,0 +1,6 @@
+User-agent: *
+Disallow: /404.html
+allow: /index.html
+allow: /favicon.ico
+allow: /static/
+allow: /convert/

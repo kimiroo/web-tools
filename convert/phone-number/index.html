@@ -6,12 +6,34 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>01X 변환기</title>
+    <title>01X → 010 변환기</title>
 
+    <!-- Meta tags -->
+    <meta name="author" content="kimiroo" />
+    <meta name="description" content="오래된 01X 전화번호를 010 전화번호로 변환해줍니다." />
+
+    <meta property="og:title" content="01X → 010 변환기" />
+    <meta property="og:description" content="오래된 01X 전화번호를 010 전화번호로 변환해줍니다." />
+    <meta property="og:type" content="website" />
+    <meta prooerty="og:locale" content="ko_KR" />
+    <meta property="og:url" content="https://tools.darakbangs.com/convert/phone-number" />
+    <meta property="og:image" content="https://tools.darakbangs.com/static/img/cat.png" />
+
+    <!-- PWA tags -->
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
     <link rel="manifest" href="/site.webmanifest">
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZML65N1LL3"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-ZML65N1LL3');
+    </script>
 
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css">
@@ -60,8 +82,8 @@
                                         <div class="col-3 d-none d-sm-block">통신사:</div>
                                         <div class="col result-text" id="resultCarrier"></div>
                                         <div class="col-3 align-middle text-center">
-                                            <a id="copyResultCarrier" class="link-grey link-copy" style="cursor:pointer;"
-                                                copy-target="resultCarrier">
+                                            <a id="copyResultCarrier" class="link-grey link-copy"
+                                                style="cursor:pointer;" copy-target="resultCarrier">
                                                 <i class="bi bi-clipboard"></i><span class="hidden-sm"> 복?사</span>
                                             </a>
                                         </div>
@@ -72,8 +94,8 @@
                                         <div class="col-3 d-none d-sm-block">형식 A:</div>
                                         <div class="col result-text" id="resultFriendly"></div>
                                         <div class="col-3 align-middle text-center">
-                                            <a id="copyResultFriendly" class="link-grey link-copy" style="cursor:pointer;"
-                                                copy-target="resultFriendly">
+                                            <a id="copyResultFriendly" class="link-grey link-copy"
+                                                style="cursor:pointer;" copy-target="resultFriendly">
                                                 <i class="bi bi-clipboard"></i><span class="hidden-sm"> 복?사</span>
                                             </a>
                                         </div>

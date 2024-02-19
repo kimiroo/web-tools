@@ -1,3 +1,6 @@
+// phoneConvert.js by kimiroo
+// Version 1.6
+
 function isValidPhone(value) {
     const filter01X = new RegExp(/^01[1-9]{1}(?:-|)\d{3,4}(?:-|)\d{4}$/);
     const filter010 = new RegExp(/^010(?:-|)\d{4}(?:-|)\d{4}$/);

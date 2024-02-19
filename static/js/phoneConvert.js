@@ -39,29 +39,37 @@ function convertTo010(value) {
 
     switch (varFirst) {
         // SKT (011, 017)
+        // 011
         case '011':
-            if (intMiddle >= 200 && intMiddle <= 499) {
-                newMiddle = (intMiddle + 5000).toString();
-            } else if (intMiddle >= 500 && intMiddle <= 899) {
-                newMiddle = (intMiddle + 3000).toString();
-            } else if (intMiddle >= 1700 && intMiddle <= 1799) {
-                newMiddle = (intMiddle + 5400).toString();
-            } else if (intMiddle >= 9000 && intMiddle <= 9499) {
-                newMiddle = (intMiddle + 0).toString();
-            } else if (intMiddle >= 9500 && intMiddle <= 9999) {
-                newMiddle = (intMiddle - 1000).toString();
+            if (intMiddle >= 200 && intMiddle < 500) {
+                newMiddle = (intMiddle + 5000).toString(); // 200~499 → 5200~5499
+
+            } else if (intMiddle >= 500 && intMiddle < 900) {
+                newMiddle = (intMiddle + 3000).toString(); // 500~899 → 3500~3899
+
+            } else if (intMiddle >= 1700 && intMiddle < 1800) {
+                newMiddle = (intMiddle + 5400).toString(); // 1700~1799 → 7100~7199
+
+            } else if (intMiddle >= 9000 && intMiddle < 9500) {
+                newMiddle = (intMiddle + 0).toString(); // 9000~9499 → 9000~9499
+
+            } else if (intMiddle >= 9500 && intMiddle < 10000) {
+                newMiddle = (intMiddle - 1000).toString(); // 9500~9999 → 8500~8999
+
             } else {
                 const err = new Error("Unknown area code for given carrier (SKT): '" + varMiddle + "'.");
                 err.code = "UNKNOWN_AREACODE_SKT";
                 throw err;
             }
             break;
-
+        // 017
         case '017':
-            if (intMiddle >= 200 && intMiddle <= 499) {
-                newMiddle = (intMiddle + 6000).toString();
-            } else if (intMiddle >= 500 && intMiddle <= 899) {
-                newMiddle = (intMiddle + 400).toString();
+            if (intMiddle >= 200 && intMiddle < 500) {
+                newMiddle = (intMiddle + 6000).toString(); // 200~499 → 6200~6499
+
+            } else if (intMiddle >= 500 && intMiddle < 900) {
+                newMiddle = (intMiddle + 4000).toString(); // 500~899 → 4500~4899
+
             } else {
                 const err = new Error("Unknown area code for given carrier (SKT): '" + varMiddle + "'.");
                 err.code = "UNKNOWN_AREACODE_SKT";
@@ -70,27 +78,40 @@ function convertTo010(value) {
             break;
 
         // KT (016, 018)
+        // 016
         case '016':
-            if (intMiddle >= 200 && intMiddle <= 499) {
-                newMiddle = (intMiddle + 3000).toString();
-            } else if (intMiddle >= 500 && intMiddle <= 899) {
-                newMiddle = (intMiddle + 2000).toString();
-            } else if (intMiddle >= 9000 && intMiddle <= 9499) {
-                newMiddle = (intMiddle - 2000).toString();
-            } else if (intMiddle >= 9500 && intMiddle <= 9999) {
-                newMiddle = (intMiddle + 0).toString();
+            if (intMiddle >= 200 && intMiddle < 500) {
+                newMiddle = (intMiddle + 3000).toString(); // 200~499 → 3200~3499
+
+            } else if (intMiddle >= 500 && intMiddle < 900) {
+                newMiddle = (intMiddle + 2000).toString(); // 500~899 → 2500~2899
+
+            } else if (intMiddle >= 9000 && intMiddle < 9500) {
+                newMiddle = (intMiddle - 2000).toString(); // 9000~9499 → 7200~7499 (7000~7199 Excluded)
+
+                if (parseInt(newMiddle) >= 7000 && parseInt(newMiddle) < 7200) {
+                    const err = new Error("Conversion range exception for this range: 010-X, X>=7000 && X<7200. X: '" + newMiddle + "'.");
+                    err.code = "RANGE_EXCEPTION_KT";
+                    throw err;
+                }
+
+            } else if (intMiddle >= 9500 && intMiddle < 10000) {
+                newMiddle = (intMiddle + 0).toString(); // 9500~9999 → 9500~9999
+
             } else {
                 const err = new Error("Unknown area code for given carrier (KT): '" + varMiddle + "'.");
                 err.code = "UNKNOWN_AREACODE_KT";
                 throw err;
             }
             break;
-
+        // 018
         case '018':
-            if (intMiddle >= 200 && intMiddle <= 499) {
-                newMiddle = (intMiddle + 4000).toString();
-            } else if (intMiddle >= 500 && intMiddle <= 899) {
-                newMiddle = (intMiddle + 6000).toString();
+            if (intMiddle >= 200 && intMiddle < 500) {
+                newMiddle = (intMiddle + 4000).toString(); // 200~499 → 4200~4499
+
+            } else if (intMiddle >= 500 && intMiddle < 900) {
+                newMiddle = (intMiddle + 6000).toString(); // 500~899 → 6500~6899
+
             } else {
                 const err = new Error("Unknown area code for given carrier (KT): '" + varMiddle + "'.");
                 err.code = "UNKNOWN_AREACODE_KT";
@@ -99,15 +120,26 @@ function convertTo010(value) {
             break;
 
         // LGU (019)
+        // 019
         case '019':
-            if (intMiddle >= 200 && intMiddle <= 499) {
-                newMiddle = (intMiddle + 2000).toString();
-            } else if (intMiddle >= 500 && intMiddle <= 899) {
-                newMiddle = (intMiddle + 5000).toString();
-            } else if (intMiddle >= 9000 && intMiddle <= 9499) {
-                newMiddle = (intMiddle - 1000).toString();
-            } else if (intMiddle >= 9500 && intMiddle <= 9999) {
-                newMiddle = (intMiddle - 2000).toString();
+            if (intMiddle >= 200 && intMiddle < 500) {
+                newMiddle = (intMiddle + 2000).toString(); // 200~499 → 2200~2499
+
+            } else if (intMiddle >= 500 && intMiddle < 900) {
+                newMiddle = (intMiddle + 5000).toString(); // 500~899 → 5500~5899
+
+            } else if (intMiddle >= 9000 && intMiddle < 9500) {
+                newMiddle = (intMiddle - 1000).toString(); // 9000~9499 → 8000~8499
+
+            } else if (intMiddle >= 9500 && intMiddle < 10000) {
+                newMiddle = (intMiddle - 2000).toString(); // 9500~9999 → 7500~7999 (7800~7899 Excluded)
+
+                if (parseInt(newMiddle) >= 7800 && parseInt(newMiddle) < 7900) {
+                    const err = new Error("Conversion range exception for this range: 010-X, X>=7800 && X<7900. X: '" + newMiddle + "'.");
+                    err.code = "RANGE_EXCEPTION_LGT";
+                    throw err;
+                }
+
             } else {
                 const err = new Error("Unknown area code for given carrier (LGT): '" + varMiddle + "'.");
                 err.code = "UNKNOWN_AREACODE_LGT";
@@ -326,6 +358,18 @@ function submitData(isManual = false) {
             case "UNKNOWN_AREACODE_LGT":
                 console.error(error);
                 isManual ? showError(true, "변환에 실패했습니다. (데이터베이스에 등록되지 않음)") : null;
+                isManual ? updateResult(getCarrierFriendly('lgt'), "ERROR", "ERROR") : null;
+                return
+            
+            case "RANGE_EXCEPTION_KT":
+                console.error(error);
+                isManual ? showError(true, "변환에 실패했습니다. (변환 예외 범위에 해당됨: 010-AAAA-BBBB, 7000 ≤ XXXX < 7200)") : null;
+                isManual ? updateResult(getCarrierFriendly('kt'), "ERROR", "ERROR") : null;
+                return
+
+            case "RANGE_EXCEPTION_LGT":
+                console.error(error);
+                isManual ? showError(true, "변환에 실패했습니다. (변환 예외 범위에 해당됨: 010-AAAA-BBBB, 7800 ≤ XXXX < 7900)") : null;
                 isManual ? updateResult(getCarrierFriendly('lgt'), "ERROR", "ERROR") : null;
                 return
 

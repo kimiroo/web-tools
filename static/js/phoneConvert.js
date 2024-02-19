@@ -93,7 +93,7 @@ function convertTo010(value) {
                 newMiddle = (intMiddle - 2000).toString(); // 9000~9499 → 7200~7499 (7000~7199 Excluded)
 
                 if (parseInt(newMiddle) >= 7000 && parseInt(newMiddle) < 7200) {
-                    const err = new Error("Conversion range exception for this range: 010-X, X>=7000 && X<7200. X: '" + newMiddle + "'.");
+                    const err = new Error("Conversion range exception for this range: 010-XXXX, XXXX>=7000 && X<7200. XXXX: '" + newMiddle + "'.");
                     err.code = "RANGE_EXCEPTION_KT";
                     throw err;
                 }
@@ -138,7 +138,7 @@ function convertTo010(value) {
                 newMiddle = (intMiddle - 2000).toString(); // 9500~9999 → 7500~7999 (7800~7899 Excluded)
 
                 if (parseInt(newMiddle) >= 7800 && parseInt(newMiddle) < 7900) {
-                    const err = new Error("Conversion range exception for this range: 010-X, X>=7800 && X<7900. X: '" + newMiddle + "'.");
+                    const err = new Error("Conversion range exception for this range: 010-XXXX, XXXX>=7800 && XXXX<7900. X: '" + newMiddle + "'.");
                     err.code = "RANGE_EXCEPTION_LGT";
                     throw err;
                 }
@@ -366,13 +366,13 @@ function submitData(isManual = false) {
             
             case "RANGE_EXCEPTION_KT":
                 console.error(error);
-                isManual ? showError(true, "변환에 실패했습니다. (변환 예외 범위에 해당됨: 010-AAAA-BBBB, 7000 ≤ XXXX < 7200)") : null;
+                isManual ? showError(true, "변환에 실패했습니다. (변환 예외 범위에 해당됨: 010-AAAA-BBBB, 7000 ≤ AAAA < 7200)") : null;
                 isManual ? updateResult(getCarrierFriendly('kt'), "ERROR", "ERROR") : null;
                 return
 
             case "RANGE_EXCEPTION_LGT":
                 console.error(error);
-                isManual ? showError(true, "변환에 실패했습니다. (변환 예외 범위에 해당됨: 010-AAAA-BBBB, 7800 ≤ XXXX < 7900)") : null;
+                isManual ? showError(true, "변환에 실패했습니다. (변환 예외 범위에 해당됨: 010-AAAA-BBBB, 7800 ≤ AAAA < 7900)") : null;
                 isManual ? updateResult(getCarrierFriendly('lgt'), "ERROR", "ERROR") : null;
                 return
 

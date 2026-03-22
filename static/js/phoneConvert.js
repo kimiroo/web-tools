@@ -9,7 +9,7 @@ function isValidPhone(value) {
 
 function is010(value) {
     const filter = new RegExp(/^010\d{8}$/);
-    return filter.test(value);
+    return filter.test(value.replaceAll('-', ''));
 }
 
 function convertTo010(value) {
@@ -135,10 +135,10 @@ function convertTo010(value) {
                 newMiddle = (intMiddle - 1000).toString(); // 9000~9499 → 8000~8499
 
             } else if (intMiddle >= 9500 && intMiddle < 10000) {
-                newMiddle = (intMiddle - 2000).toString(); // 9500~9999 → 7500~7999 (7800~7899 Excluded)
+                newMiddle = (intMiddle - 2000).toString(); // 9500~9999 → 7500~7999 (7500~7899 Excluded)
 
-                if (parseInt(newMiddle) >= 7800 && parseInt(newMiddle) < 7900) {
-                    const err = new Error("Conversion range exception for this range: 010-XXXX, XXXX>=7800 && XXXX<7900. X: '" + newMiddle + "'.");
+                if (parseInt(newMiddle) >= 7500 && parseInt(newMiddle) < 7900) {
+                    const err = new Error("Conversion range exception for this range: 010-XXXX, XXXX>=7500 && XXXX<7900. X: '" + newMiddle + "'.");
                     err.code = "RANGE_EXCEPTION_LGT";
                     throw err;
                 }
@@ -164,7 +164,7 @@ function convertTo010(value) {
 function getCarrier(value) {
     value = value.replaceAll('-', '');
 
-    if (!isValidPhone) {
+    if (!isValidPhone(value)) {
         const err = new TypeError("Value '" + value + "' is not a valid phone number.");
         err.code = "NOT_PHONE_NUMBER";
         throw err;
@@ -307,7 +307,7 @@ function updateResult(carrier, number, numFriendly) {
     resultFriendly.innerText = numFriendly;
 }
 
-function submitData(isManual = false) {
+function submitData(isManual) {
     const value = document.getElementById('inputPhone').value;
 
     // Simple input value validation
@@ -363,7 +363,7 @@ function submitData(isManual = false) {
                 isManual ? showError(true, "변환에 실패했습니다. (데이터베이스에 등록되지 않음)") : null;
                 isManual ? updateResult(getCarrierFriendly('lgt'), "ERROR", "ERROR") : null;
                 return
-            
+
             case "RANGE_EXCEPTION_KT":
                 console.error(error);
                 isManual ? showError(true, "변환에 실패했습니다. (변환 예외 범위에 해당됨: 010-AAAA-BBBB, 7000 ≤ AAAA < 7200)") : null;
@@ -372,7 +372,7 @@ function submitData(isManual = false) {
 
             case "RANGE_EXCEPTION_LGT":
                 console.error(error);
-                isManual ? showError(true, "변환에 실패했습니다. (변환 예외 범위에 해당됨: 010-AAAA-BBBB, 7800 ≤ AAAA < 7900)") : null;
+                isManual ? showError(true, "변환에 실패했습니다. (변환 예외 범위에 해당됨: 010-AAAA-BBBB, 7500 ≤ AAAA < 7900)") : null;
                 isManual ? updateResult(getCarrierFriendly('lgt'), "ERROR", "ERROR") : null;
                 return
 
@@ -418,13 +418,13 @@ document.addEventListener('DOMContentLoaded', () => {
     valueInput.addEventListener('input', () => {
         showError(false);
         updateResult('', '', '');
-        submitData(isManual = false);
+        submitData(false);
     })
 
     valueInput.addEventListener('keypress', (event) => {
         if (event.key === "Enter") {
             updateResult('', '', '');
-            submitData(isManual = true);
+            submitData(true);
         }
     })
 
@@ -433,8 +433,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const tooltip = new bootstrap.Tooltip(elem, {'trigger': 'manual', 'html': true, 'customClass': 'custom-tooltip', 'title': '<div><i class="bi bi-check-lg"></i> <span>복!사</span></div>'});
 
         elem.addEventListener('click', () => {
-            copyTargetId = elem.getAttribute('copy-target');
-            copyTarget = document.getElementById(copyTargetId);
+            const copyTargetId = elem.getAttribute('copy-target');
+            const copyTarget = document.getElementById(copyTargetId);
 
             if (location.protocol === 'http:') {
                 //console.log('Copy - Insecure');
